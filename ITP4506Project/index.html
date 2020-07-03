@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+       <!--  bootstrap css  -->
+        <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="css/font-awesome.css" rel="stylesheet">
+        <script src="js/bootstrap.js"></script>
+        <script src="jslib/jquery-3.3.1.js"></script> 
+        <!--web-fonts-->
+        <link href="//fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+        <link href="//fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+        <link href="//fonts.googleapis.com/css?family=Tangerine:400,700" rel="stylesheet">
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    <script src="jslib/jquery-ui.js"></script>
+<!--//web-fonts-->
+        <script>
+        $(document).ready(function(){
+           $("#link").on("click",function(){
+                $("#modal").fadeIn(1000);
+            });
+
+            $("#close").click(function(){
+                $("#modal").fadeOut(1000);
+            });
+            $("#close1").click(function(){
+                $("#signUp").fadeOut(1000);
+            });
+            $("#close2").click(function(){
+                $("#modal2").fadeOut(1000);
+            });
+            $("#closeBtn").click(function(){
+                $("#modal").fadeOut(1000);
+            });
+            $("#create").on("click",function(){
+                $("#modal").slideUp(1000);
+                $("#signUp").slideDown(1000);
+            });
+            
+            $("#login").on("click",function(){
+                $("#modal").slideDown(1000);
+                $("#signUp").slideUp(1000);
+            });
+            
+            $("#login1").on("click",function(){
+                $("#modal").slideDown(1000);
+                $("#modal2").slideUp(1000);
+            });
+            
+            $("#for").on("click",function(){
+                $("#modal").slideUp(1000);
+                $("#modal2").slideDown(1000);
+            });
+            
+            $("#go2").click(function(){
+               alert("The reset password letter has been sent to your email."); 
+                location.reload();
+            });
+            
+            $("#go").click(function(){
+                var ac=$("#ac").val();
+                if(ac==="normal")
+                    location.href="normalPage.html";
+                else if(ac==="operator")
+                    location.href="shopinformation.html";
+                else if(ac==="admin")
+                    location.href="adminPage.html";
+            });
+            
+            $("#go1").click(function(){
+                alert("Register Successful!! You can login now.");    
+            });
+        });
+    </script>
+</head>
+<body>
+   
+<div class="modal-open" id="modal" style="position: absolute;z-index:2;top: 20%;left: 30%;" role="dialog" hidden>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: #ff9022">
+               <button type="button" class="close" data-dismiss="modal" id="close">&times;</button>
+                <h2 class="modal-title" id="modalTitle">Login</h2>
+            </div>
+            <div class="modal-body">
+                <form id="loginForm">
+                   <div class="form-group">
+                   <label for="">Username</label>
+                    <input type="text" name="" id="ac" class="form-control" >
+                    </div>
+                    <div class="form-group">
+                   <label for="">Password </label> <a href="javascript:void(0)" id="for"> Forgot Password?</a>
+                    <input type="password" id="pw" name="" class="form-control" >
+                    </div>
+                    
+                    <div class="form-group">
+                    <input type="checkbox">Remember Me <br>
+                    </div>
+<!--                    <a href="" class="btn btn-primary btn-block" id="go">Login</a>-->
+                    <input type="button" class="btn btn-primary btn-block" id="go" value="Login" >
+                </form>
+            </div>
+            <div class="modal-footer">
+                <a href="javascript:void(0)" id="create" style="float: left">Create Account?</a><br>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal-open" id="modal2" style="position: absolute;z-index:2;top: 20%;left: 30%;" role="dialog" hidden>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: #ff9022">
+               <button type="button" class="close" data-dismiss="modal" id="close2">&times;</button>
+                <h2 class="modal-title" id="modalTitle">Forgot Password</h2>
+            </div>
+            <div class="modal-body">
+                <form id="forgotPw">
+                   <div class="form-group">
+                   <label for="">Username</label>
+                    <input type="text" name="" id="u" class="form-control" >
+                    </div>
+                    <div class="form-group">
+                   <label for="">Email</label>
+                    <input type="text" name="" id="e" class="form-control" >
+                    </div>
+                    <input type="button" class="btn btn-primary btn-block" id="go2" value="Submit" >
+                </form>
+            </div>
+            <div class="modal-footer">
+                <p style="float: left">You have an account? <a href="javascript:void(0)" id="login1">Login</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal-open" id="signUp" role="dialog" style="position: absolute;z-index:2;top: 20%;left: 30%;" hidden>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: #ff9022">
+               <button type="button" class="close" data-dismiss="modal" id="close1">&times;</button>
+                <h2 class="modal-title" id="Title">Create Account</h2>
+            </div>
+            <div class="modal-body">
+                <form class="" id="createForm" action="">
+                   <div class="form-group">
+                   <label for="">Username</label>
+                    <input type="text" name="" class="form-control" >
+                    </div>
+                    <div class="form-group">
+                   <label for="">Password</label>
+                    <input type="password" name="" class="form-control" >
+                    </div>
+                    
+                    <div class="form-group">
+                   <label for="">Confirm Password</label>
+                    <input type="password" name="" class="form-control" >
+                    </div>
+
+                  <div class="form-group">
+                   <label for="">First Nname</label>
+                    <input type="text" name="" class="form-control" >
+                    </div>
+                    
+                    <div class="form-group">
+                   <label for="">Last Nname</label>
+                    <input type="text" name="" class="form-control" >
+                    </div>
+                    
+                   <div class="form-group">
+                   <label for="">Address</label>
+                    <input type="text" name="" class="form-control" >
+                    </div>
+                    
+                    <div class="form-group">
+                   <label for="">E-mail</label>
+                    <input type="text" name="" class="form-control" >
+                    </div>
+                    
+                    <div class="form-group">
+                   <label for="">Phone Number</label>
+                    <input type="text" name="" class="form-control" >
+                    </div>
+                    
+<!--                    <button class="btn btn-primary btn-block" id="go2">Register</button>-->
+                    <input type="button" class="btn btn-primary btn-block" id="go1" value="Register">
+                    <input type="reset" class="btn btn-primary btn-block" value="Reset" style="background-color: crimson">
+                </form>
+            </div>
+            <div class="modal-footer">
+                <p style="float: left">You have an account? <a href="javascript:void(0)" id="login">Login</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="banner inner-bg-w3" id="home">
+		<!-- header -->
+		<div class="banner-top">
+			<div class="contact-bnr-w3-agile">
+				<ul>
+					<li><i class="fa fa-envelope" aria-hidden="true"></i><a href="mailto:info@example.com">yummy _everywhere@gmail.com</a></li>
+					<li><i class="fa fa-phone" aria-hidden="true"></i>+852 2345-6789</li>
+					<li><i class="glyphicon glyphicon-log-in" aria-hidden="true"></i><a href="javascript:void(0)" id="link" >Log In</a></li>	
+					<li>
+						<div class="search">
+							<input class="search_box" type="checkbox" id="search_box">
+							<label class="icon-search" for="search_box"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></label>
+							<div class="search_form">
+								<form action="#" method="post">
+									<input type="search" name="Search" placeholder="Search..." required="" />
+									<input type="submit" value="Send" />
+								</form>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+		<header>
+			<div class="container">
+
+			<!-- navigation -->
+			<div class="w3_navigation">
+			<nav class="navbar navbar-default">
+				<div class="navbar-header navbar-left">
+<!--
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+-->
+					<div class="w3_navigation_pos" style="text-align: center;">
+						<h1><a href="index.html"><span>Y</span>ummy <br><span>E</span>verywhere</a></h1>
+					</div>
+				</div>
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+					<nav class="menu menu--miranda">
+						<ul class="nav navbar-nav menu__list">
+							<li class="menu__item"><a href="index.html" class="menu__link">Home</a></li>
+							<li class="menu__item"><a href="about.html" class=" menu__link">About</a></li>
+							<li class="menu__item"><a href="services.html" class=" menu__link">Order</a></li>
+							<li class="menu__item"><a href="Application.html" class=" menu__link">Shop Apply</a></li>
+							<li class="menu__item"><a href="contact.html" class=" menu__link">Contact</a></li>
+						</ul>
+					</nav>
+				</div>
+			</nav>	
+	</div>
+	<div class="clearfix"></div>
+		<!-- //navigation -->
+			</div>
+		</header>
+	<!-- //header -->
+	</div>
+	
+	
+	<div class="mail">
+					<div class="mail-grid1">
+					<div class="container">	
+						<h3 class="tittle-w3">Contact <span>Info</span></h3>
+							<div class="col-md-4 mail-agileits-w3layouts">
+								<i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>
+								<div class="contact-right">
+									<p>Phone</p><span>+852 2345-6789</span>
+								</div>
+							</div>
+							<div class="col-md-4 mail-agileits-w3layouts">
+								<i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>
+								<div class="contact-right">
+									<p>Email</p><a href="mailto:info@example.com">yummy_everywhere@gmail.com</a>
+								</div>
+							</div>
+							<div class="col-md-4 mail-agileits-w3layouts">
+								<i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>
+								<div class="contact-right">
+									<p>Address</p><span>7784 Diamonds street, California, US.</span>
+								</div>
+							</div>
+							<div class="clearfix"></div>
+						</div>
+					</div>
+				</div>
+				<a href="#home" class="scroll" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+</body>
+</html>

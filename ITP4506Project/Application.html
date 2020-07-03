@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>OperatorApplication</title>
+<!--  bootstrap css  -->
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="css/font-awesome.css" rel="stylesheet">
+    <!--web-fonts-->
+    <link href="//fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Tangerine:400,700" rel="stylesheet">
+    <!--//web-fonts-->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    <script src="jslib/jquery-ui.js"></script>
+    <script>
+        $(document).ready(function(){
+            
+            $("#link").on("click",function(){
+                $("#modal").fadeIn(1000);
+            });
+
+            $("#close").click(function(){
+                $("#modal").fadeOut(1000);
+            });
+            $("#close1").click(function(){
+                $("#signUp").fadeOut(1000);
+            });
+            $("#close2").click(function(){
+                $("#modal2").fadeOut(1000);
+            });
+            $("#closeBtn").click(function(){
+                $("#modal").fadeOut(1000);
+            });
+            $("#create").on("click",function(){
+                $("#modal").slideUp(1000);
+                $("#signUp").slideDown(1000);
+            });
+            
+            $("#login").on("click",function(){
+                $("#modal").slideDown(1000);
+                $("#signUp").slideUp(1000);
+            });
+            
+            $("#login1").on("click",function(){
+                $("#modal").slideDown(1000);
+                $("#modal2").slideUp(1000);
+            });
+            
+            $("#for").on("click",function(){
+                $("#modal").slideUp(1000);
+                $("#modal2").slideDown(1000);
+            });
+            
+            $("#go2").click(function(){
+               alert("The reset password letter has been sent to your email."); 
+                location.reload();
+            });
+            
+            $("#go").click(function(){
+                var ac=$("#ac").val();
+                if(ac==="normal")
+                    location.href="normalPage.html";
+                else if(ac==="operator")
+                    location.href="shopinformation.html";
+                else if(ac==="admin")
+                    location.href="adminPage.html";
+            });
+            
+            $("#go1").click(function(){
+                alert("Register Successful!! You can login now.");    
+            });
+            
+            $("#info").hide(0).delay(500).fadeIn(1000);
+            $("#box").hide(0).delay(500).fadeIn(2500);
+            $.getJSON('Area.json',function(jd){
+              $("#district").html("<option>----Hong Kong Island----</option>");
+              for(var i = 0; i<jd.area["Hong Kong Island"].length;i++){
+                $("#district").append('<option value="'+jd.area["Hong Kong Island"][i]+'">'+jd.area["Hong Kong Island"][i]+"</option>");
+                }
+                $("#food").html("<option>----Cuisine----</option>");
+              for(var i = 0; i<jd.food.length;i++){
+                $("#food").append('<option value="'+jd.food[i]+'">'+jd.food[i]+"</option>");
+                }
+            }); 
+            $("#cityArea").change(function(){
+               $.getJSON('Area.json',function(jd){
+                var cityArea = $("#cityArea").val();
+              $("#district").html("<option>----"+cityArea+"----</option>");
+              for(var i = 0; i<jd.area[cityArea].length;i++){
+                $("#district").append('<option value="'+jd.area[cityArea][i]+'">'+jd.area[cityArea][i]+"</option>");
+                }
+          }); 
+            });
+            
+            $("#district").change(function(){
+               $.getJSON('Area.json',function(jd){
+                    var dis = $("#district").val();
+                  $("#subDis").html("<option>----"+dis+"----</option>");
+                  for(var i = 0; i<jd.district[dis].length;i++){
+                    $("#subDis").append('<option value="'+jd.district[dis][i]+'">'+jd.district[dis][i]+"</option>");
+                    }
+                });
+            });
+            
+            function readImage(input){
+                if(input.files && input.files[0]){
+                    var reader = new FileReader();
+                    reader.onload = function(e){
+                        $("#menuImg").attr("src",e.target.result);
+                    }
+                        reader.readAsDataURL(input.files[0]);
+                }
+            }
+            
+            $("#menu").change(function(){
+                $("#menuImg").show();
+               readImage(this); 
+            });
+            
+            // Get a reference to the image element
+            var menu = document.getElementById("menuImg");
+
+        // Take action when the image has loaded
+            menu.addEventListener("load", function () {
+            var imgCanvas = document.createElement("canvas"),
+                imgContext = imgCanvas.getContext("2d");
+
+            // Make sure canvas is as big as the picture
+            imgCanvas.width = menu.width;
+            imgCanvas.height = menu.height;
+
+            // Draw image into canvas element
+            imgContext.drawImage(menu, 0, 0, menu.width, menu.height);
+
+            // Get canvas contents as a data URL
+            var imgAsDataURL = imgCanvas.toDataURL("image/png");
+
+            // Save image into localStorage
+            try {
+                localStorage.setItem("menu", imgAsDataURL);
+//                $("#test").attr("src",localStorage.getItem("menu"));
+            }
+            catch (e) {
+                console.log("Storage failed: " + e);
+            }
+        }, false); 
+
+            $("#submit").click(function(){
+                localStorage.setItem("restaurant",$("#restaurant").val());
+                localStorage.setItem("address",$("#address").val());
+                localStorage.setItem("cityArea",$("#cityArea").val());
+                localStorage.setItem("district",$("#district").val());
+                localStorage.setItem("subDis",$("#subDis").val());
+                localStorage.setItem("food",$("#food").val());
+                localStorage.setItem("num",$("#num").val());
+                localStorage.setItem("fname",$("#fname").val());
+                localStorage.setItem("lname",$("#lname").val());
+                localStorage.setItem("email",$("#email").val());
+                localStorage.setItem("price",$("input[type=radio]:checked").val());
+                $("#info").animate({left:"0%"},400);
+                $("#info").animate({left:"3%"},500);
+                $(".a").effect("bounce", {times:4}, 500);
+            });
+      });
+    </script>
+</head>
+
+<body>
+   
+   <div class="modal-open" id="modal" style="position: absolute;z-index:2;top: 20%;left: 30%;" role="dialog" hidden>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: #ff9022">
+               <button type="button" class="close" data-dismiss="modal" id="close">&times;</button>
+                <h2 class="modal-title" id="modalTitle">Login</h2>
+            </div>
+            <div class="modal-body">
+                <form id="loginForm">
+                   <div class="form-group">
+                   <label for="">Username</label>
+                    <input type="text" name="" id="ac" class="form-control" >
+                    </div>
+                    <div class="form-group">
+                   <label for="">Password </label> <a href="javascript:void(0)" id="for"> Forgot Password?</a>
+                    <input type="password" id="pw" name="" class="form-control" >
+                    </div>
+                    
+                    <div class="form-group">
+                    <input type="checkbox">Remember Me <br>
+                    </div>
+<!--                    <a href="" class="btn btn-primary btn-block" id="go">Login</a>-->
+                    <input type="button" class="btn btn-primary btn-block" id="go" value="Login" >
+                </form>
+            </div>
+            <div class="modal-footer">
+                <a href="javascript:void(0)" id="create" style="float: left">Create Account?</a><br>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal-open" id="modal2" style="position: absolute;z-index:2;top: 20%;left: 30%;" role="dialog" hidden>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: #ff9022">
+               <button type="button" class="close" data-dismiss="modal" id="close2">&times;</button>
+                <h2 class="modal-title" id="modalTitle">Forgot Password</h2>
+            </div>
+            <div class="modal-body">
+                <form id="forgotPw">
+                   <div class="form-group">
+                   <label for="">Username</label>
+                    <input type="text" name="" id="u" class="form-control" >
+                    </div>
+                    <div class="form-group">
+                   <label for="">Email</label>
+                    <input type="text" name="" id="e" class="form-control" >
+                    </div>
+                    <input type="button" class="btn btn-primary btn-block" id="go2" value="Submit" >
+                </form>
+            </div>
+            <div class="modal-footer">
+                <p style="float: left">You have an account? <a href="javascript:void(0)" id="login1">Login</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal-open" id="signUp" role="dialog" style="position: absolute;z-index:2;top: 20%;left: 30%;" hidden>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: #ff9022">
+               <button type="button" class="close" data-dismiss="modal" id="close1">&times;</button>
+                <h2 class="modal-title" id="Title">Create Account</h2>
+            </div>
+            <div class="modal-body">
+                <form class="" id="createForm" action="">
+                   <div class="form-group">
+                   <label for="">Username</label>
+                    <input type="text" name="" class="form-control" >
+                    </div>
+                    <div class="form-group">
+                   <label for="">Password</label>
+                    <input type="password" name="" class="form-control" >
+                    </div>
+                    
+                    <div class="form-group">
+                   <label for="">Confirm Password</label>
+                    <input type="password" name="" class="form-control" >
+                    </div>
+
+                  <div class="form-group">
+                   <label for="">First Nname</label>
+                    <input type="text" name="" class="form-control" >
+                    </div>
+                    
+                    <div class="form-group">
+                   <label for="">Last Nname</label>
+                    <input type="text" name="" class="form-control" >
+                    </div>
+                    
+                   <div class="form-group">
+                   <label for="">Address</label>
+                    <input type="text" name="" class="form-control" >
+                    </div>
+                    
+                    <div class="form-group">
+                   <label for="">E-mail</label>
+                    <input type="text" name="" class="form-control" >
+                    </div>
+                    
+                    <div class="form-group">
+                   <label for="">Phone Number</label>
+                    <input type="text" name="" class="form-control" >
+                    </div>
+                    
+<!--                    <button class="btn btn-primary btn-block" id="go2">Register</button>-->
+                    <input type="button" class="btn btn-primary btn-block" id="go1" value="Register">
+                    <input type="reset" class="btn btn-primary btn-block" value="Reset" style="background-color: crimson">
+                </form>
+            </div>
+            <div class="modal-footer">
+                <p style="float: left">You have an account? <a href="javascript:void(0)" id="login">Login</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="banner inner-bg-w3" id="home">
+        <!-- header -->
+        <div class="banner-top">
+            <div class="contact-bnr-w3-agile">
+                <ul>
+                    <li><i class="fa fa-envelope" aria-hidden="true"></i><a href="mailto:info@example.com">yummy _everywhere@gmail.com</a></li>
+                    <li><i class="fa fa-phone" aria-hidden="true"></i>+852 2345-6789</li>
+                    <li><i class="glyphicon glyphicon-log-in" aria-hidden="true"></i><a href="javascript:void(0)" id="link" >Log In</a></li>
+                    <li>
+                        <div class="search">
+                            <input class="search_box" type="checkbox" id="search_box">
+                            <label class="icon-search" for="search_box"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></label>
+                            <div class="search_form">
+                                <form action="#" method="post">
+                                    <input type="search" name="Search" placeholder="Search..." required="" />
+                                    <input type="submit" value="Send" />
+                                </form>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <header>
+            <div class="container">
+
+                <!-- navigation -->
+                <div class="w3_navigation">
+                    <nav class="navbar navbar-default">
+                        <div class="navbar-header navbar-left">
+                            <!--
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+-->
+                            <div class="w3_navigation_pos" style="text-align: center;">
+                                <h1><a href="index.html"><span>Y</span>ummy <br><span>E</span>verywhere</a></h1>
+                            </div>
+                        </div>
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+                            <nav class="menu menu--miranda">
+                                <ul class="nav navbar-nav menu__list">
+                                    <li class="menu__item"><a href="index.html" class="menu__link">Home</a></li>
+                                    <li class="menu__item"><a href="about.html" class=" menu__link">About</a></li>
+                                    <li class="menu__item"><a href="services.html" class=" menu__link">Order</a></li>
+                                    <li class="menu__item"><a href="Application.html" class=" menu__link">Shop Apply</a></li>
+                                    <li class="menu__item"><a href="contact.html" class=" menu__link">Contact</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </nav>
+                </div>
+                <div class="clearfix"></div>
+                <!-- //navigation -->
+            </div>
+        </header>
+        <!-- //header -->
+    </div>
+<h2 class="tittle-w3">Shop<span>Application</span></h2>
+    <!--Users inputing the resturant information   -->
+<div id="box"><h1 id="success" class="a">Information</h1><h1 id="successful" class="a">Submitted</h1></div>
+    <div id="info" class="col-md-5 mail-grid1-form " style="float: right;margin: 100px">
+        <form enctype="multipart/form-data">
+
+            <p style="color: darkgray">Restaurant Name*</p><input type="text" name="restaurant" id="restaurant" placeholder="Resturant Name" required>
+            <p style="color: darkgray">Restaurant Address*</p><input type="text" id="address" name="address" placeholder="Resturant Address" required>
+            <p style="color: darkgray">Area*</p><select name="cityArea" id="cityArea" required>
+                <option value="Hong Kong Island">Hong Kong Island</option>
+                <option value="Kowloon">Kowloon</option>
+                <option value="New Territories">New Territories</option>
+            </select>
+            <p style="color: darkgray">District*</p><select name="district" id="district" required>
+            </select>
+            <p style="color: darkgray">Sub-District*</p><select name="subDis" id="subDis" required>
+                <option value="">Sub-District</option>
+            </select>
+            <p style="color: darkgray">Cuisine*</p><select name="food" id="food" required>
+            </select>
+            <p style="color: darkgray">First Name*</p><input type="text" id="fname" name="fname" placeholder="First Name" required>
+            <p style="color: darkgray">Last Name*</p><input type="text" id="lname" name="lname" placeholder="Last Name" required>
+            <p style="color: darkgray">Contact Number*</p><input type="text" id="num" name="num" placeholder="Contact Number" required>
+            <p style="color: darkgray">Email Address*</p><input type="text" id="email" name="email" placeholder="Email Address" required>
+            <p style="color: darkgray">Average Cost per person*</p>
+            <input type="radio" name="money" value="1-49" checked><label style="color: darkgray" for="">($)1-49</label> <br>
+            <input type="radio" name="money" value="50-200"><label style="color: darkgray" for="">($)50-200 </label><br>
+            <input type="radio" name="money" value="201-500"><label style="color: darkgray" for="">($)201-500</label> <br>
+            <input type="radio" name="money" value="Over($)500"><label style="color: darkgray" for="">Over($)500</label> <br><br>
+            <p style="color: darkgray">Menu Upload*:</p><input type="file" name="menu" id="menu"><br>
+            
+            <img width="500px" height="600px" src="#" alt="menu image" id="menuImg" hidden>
+            
+            <p><input type="button" value="Submit" style="width: 100%" id="submit"></p>
+        </form>
+        <!--店名,地點,地區,菜式,名,姓,電話,Email,人均消費-->
+    </div>
+    <div style="position: fixed;bottom: 0;width: 100%;background:rgb(32, 32, 32);">
+    <div class="col-md-4 mail-agileits-w3layouts">
+								<i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>
+								<div class="contact-right">
+									<p style="color: #fff">Phone</p><span style="color: lightblue">+852 2345-6789</span>
+								</div>
+							</div>
+							<div class="col-md-4 mail-agileits-w3layouts">
+								<i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>
+								<div class="contact-right">
+									<p style="color: #fff">Email</p><a href="mailto:info@example.com" style="color: lightblue">yummy_everywhere@gmail.com</a>
+								</div>
+							</div>
+							<div class="col-md-4 mail-agileits-w3layouts">
+								<i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>
+								<div class="contact-right">
+									<p style="color: #fff">Address</p><span style="color: lightblue">7784 Diamonds street, California, HK.</span>
+								</div>
+							</div>
+</div>
+<!--    <img src="#" alt="Sample" id="test">-->
+    
+    <a href="#home" class="scroll" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+</body>
+
+</html>

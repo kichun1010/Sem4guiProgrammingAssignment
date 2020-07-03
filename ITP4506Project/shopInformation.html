@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Shop Information</title>
+    <!--  bootstrap css  -->
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="css/font-awesome.css" rel="stylesheet">
+    <!--web-fonts-->
+    <link href="//fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Tangerine:400,700" rel="stylesheet">
+    <!--//web-fonts-->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    <script src="jslib/jquery-ui.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".dropdown").hover(            
+						function() {
+							$('.dropdown-menu', this).stop( true, true ).slideDown("fast");
+							$(this).toggleClass('open');        
+						},
+						function() {
+							$('.dropdown-menu', this).stop( true, true ).slideUp("fast");
+							$(this).toggleClass('open');       
+						}
+					);
+            
+            $("#change").on("click",function(){
+                $("#modal").fadeIn(1000);
+            }); 
+            $("#close").click(function(){
+                $("#modal").fadeOut(1000);
+            });
+            
+            $("#go").click(function(){
+                if(confirm("Are you sure you want to change your password?")){
+                    alert("Your password has been changed!");
+                    location.reload();
+                }
+            });
+            $("#info").hide(0).delay(500).fadeIn(1000);
+            $("#box").hide(0).delay(500).fadeIn(2500);
+            $("#restaurant").val(localStorage.getItem("restaurant"));
+            $("#address").val(localStorage.getItem("address"));
+            $("#cityArea").val(localStorage.getItem("cityArea"));
+            $("#district").val(localStorage.getItem("district"));
+            $("#subDis").val(localStorage.getItem("subDis"));
+            $("#food").val(localStorage.getItem("food"));
+            $("#num").val(localStorage.getItem("num"));
+            $("#fname").val(localStorage.getItem("fname"));
+            $("#lname").val(localStorage.getItem("lname"));
+            $("#email").val(localStorage.getItem("email"));
+        var id = localStorage.getItem("price");
+        $('#'+id).prop("checked",true);
+
+            $("#submit").click(function(){
+//            if($("#restaurant").val()==""||$("#address").val()==""||$("#cityArea").val()==""||$("#district").val()==""||$("#subDis").val()==""||$("#food").val()==""||$("#num").val()==""||$("#fname").val()==""||$("#lname").val()==""||$("#email").val()==""){
+//                    $("#infoform").animate("shake", {times:4}, 2000,function(){alert("Please enter all the data")});
+//                }else{
+                localStorage.setItem("restaurant",$("#restaurant").val());
+                localStorage.setItem("address",$("#address").val());
+                localStorage.setItem("cityArea",$("#cityArea").val());
+                localStorage.setItem("district",$("#district").val());
+                localStorage.setItem("subDis",$("#subDis").val());
+                localStorage.setItem("food",$("#food").val());
+                localStorage.setItem("num",$("#num").val());
+                localStorage.setItem("fname",$("#fname").val());
+                localStorage.setItem("lname",$("#lname").val());
+                localStorage.setItem("email",$("#email").val());
+                localStorage.setItem("price",$("input[type=radio]:checked").val());
+                $("#info").animate({left:"0%"},400);
+                $("#info").animate({left:"3%"},500);
+                $(".a").effect("bounce", {times:4}, 1000,function(){location.reload();});
+//                }
+            });
+            
+            
+    });
+    </script>
+</head>
+
+<body>
+   <div class="modal-open" id="modal" style="position: absolute;z-index:2;top: 20%;left: 30%;" role="dialog" hidden>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: #ff9022">
+               <button type="button" class="close" data-dismiss="modal" id="close">&times;</button>
+                <h2 class="modal-title" id="modalTitle">Change Password</h2>
+            </div>
+            <div class="modal-body">
+                <form id="changePw">
+                   <div class="form-group">
+                   <label for="">Old Password</label>
+                    <input type="password" name="" id="oldPw" class="form-control" >
+                    </div>
+                    <div class="form-group">
+                   <label for="">New Password</label>
+                    <input type="password" id="newPw" name="" class="form-control" >
+                    </div>
+                    
+                    <div class="form-group">
+                   <label for="">Confirm Password</label>
+                    <input type="password" id="" name="" class="form-control" >
+                    </div>
+                    
+<!--                    <a href="" class="btn btn-primary btn-block" id="go">Login</a>-->
+                    <input type="button" class="btn btn-primary btn-block" id="go" value="Chagne" >
+                    <input type="reset" class="btn btn-primary btn-block" value="Reset" style="background-color: crimson">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+   
+    <div class="banner inner-bg-w3" id="home">
+        <!-- header -->
+        <div class="banner-top">
+            <div class="contact-bnr-w3-agile">
+                <ul>
+                    <li><i class="fa fa-envelope" aria-hidden="true"></i><a href="mailto:info@example.com">yummy _everywhere@gmail.com</a></li>
+                    <li><i class="fa fa-phone" aria-hidden="true"></i>+852 2345-6789</li>
+                    <li class="dropdown menu__item"><i class="fa fa-user" aria-hidden="true"></i>
+						<a href="#" class="dropdown-toggle menu__link"  data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">operator<span class="caret"></span></a>
+						<ul class="dropdown-menu" style="background-color:darkgray;">
+							<li><a href="operatorProfile.html">Profile</a></li>
+							<li><a href="javascript:void(0)" id="change">Change Password</a></li>
+						</ul>
+					</li>
+                    <li><i class="glyphicon glyphicon-log-out" aria-hidden="true"></i><a href="index.html">Log Out</a></li>
+                    <li>
+                        <div class="search">
+                            <input class="search_box" type="checkbox" id="search_box">
+                            <label class="icon-search" for="search_box"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></label>
+                            <div class="search_form">
+                                <form action="#" method="post">
+                                    <input type="search" name="Search" placeholder="Search..." required="" />
+                                    <input type="submit" value="Send" />
+                                </form>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <header>
+            <div class="container">
+
+                <!-- navigation -->
+                <div class="w3_navigation">
+                    <nav class="navbar navbar-default">
+                        <div class="navbar-header navbar-left">
+                            <!--
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+-->
+                            <div class="w3_navigation_pos" style="text-align: center;">
+                                <h1><a href="index.html"><span>Y</span>ummy <br><span>E</span>verywhere</a></h1>
+                            </div>
+                        </div>
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+                            <nav class="menu menu--miranda">
+                                <ul class="nav navbar-nav menu__list">
+                                    <li class="menu__item"><a href="index.html" class="menu__link">Home</a></li>
+                                    <li class="menu__item"><a href="#" class=" menu__link">About</a></li>
+                                    <li class="menu__item"><a href="contact.html" class=" menu__link">Contact</a></li>
+                                    <li class="menu__item"><a href="menuManagement1.php" class=" menu__link">Menu Manage</a></li>
+                                    <li class="menu__item"><a href="shopInformation.html" class=" menu__link">Shop Information</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </nav>
+                </div>
+                <div class="clearfix"></div>
+                <!-- //navigation -->
+            </div>
+        </header>
+        <!-- //header -->
+    </div>
+    <div id="title1">
+    <h2 class="tittle-w3">Shop<span>Information</span></h2></div>
+    <!--Users inputing the resturant information   -->
+<div id="box"><h1 class="a" id="success">Information</h1><h1 id="successful" class="a">updated</h1></div>
+    <div id="info" class="col-md-5 mail-grid1-form " style="float: right;margin: 100px" >
+        <form enctype="multipart/form-data">
+
+            <p style="color: darkgray">Restaurant Name*</p><input type="text" id="restaurant" name="restaurant" placeholder="Resturant Name" readonly>
+            <p style="color: darkgray">Restaurant Address*</p><input type="text" id="address" name="address" placeholder="Resturant Address" readonly>
+            <p style="color: darkgray">Area*</p><input type="text" id="cityArea" readonly>
+            <p style="color: darkgray">District*</p><input type="text" id="district" readonly>
+            <p style="color: darkgray">Sub-District*</p><input type="text" id="subDis" readonly>
+            <p style="color: darkgray">Cuisine*</p><input type="text" id="food" readonly>
+            <p style="color: darkgray">First Name*</p><input type="text" id="fname" name="fname" placeholder="First Name" required>
+            <p style="color: darkgray">Last Name*</p><input type="text" id="lname" name="lname" placeholder="Last Name" required>
+            <p style="color: darkgray">Contact Number*</p><input type="text" id="num" name="num" placeholder="Contact Number" required>
+            <p style="color: darkgray">Email Address*</p><input type="text" id="email" name="email" placeholder="Email Address" >
+            <p style="color: darkgray">Average Cost per person*</p>
+            <input id="1-49" type="radio" name="money" value="1-49" checked><label style="color: darkgray" for="">($)1-49</label> <br>
+            <input id="50-200" type="radio" name="money" value="50-200"><label style="color: darkgray" for="">($)50-200 </label><br>
+            <input id="201-500" type="radio" name="money" value="201-500"><label style="color: darkgray" for="">($)201-500</label> <br>
+            <input id="Over($)500" type="radio" name="money" value="Over($)500"><label style="color: darkgray" for="">Over($)500</label> <br><br>
+            <p><input type="button" id="submit" value="Update Information" style="width: 100%"></p>
+        </form>
+        <!--店名,地點,地區,菜式,名,姓,電話,Email,人均消費-->
+    </div>
+    <div style="position: fixed;bottom: 0;width: 100%;background:rgb(32, 32, 32);">
+    <div class="col-md-4 mail-agileits-w3layouts">
+								<i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>
+								<div class="contact-right">
+									<p style="color: #fff">Phone</p><span style="color: lightblue">+852 2345-6789</span>
+								</div>
+							</div>
+							<div class="col-md-4 mail-agileits-w3layouts">
+								<i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>
+								<div class="contact-right">
+									<p style="color: #fff">Email</p><a href="mailto:info@example.com" style="color: lightblue">yummy_everywhere@gmail.com</a>
+								</div>
+							</div>
+							<div class="col-md-4 mail-agileits-w3layouts">
+								<i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>
+								<div class="contact-right">
+									<p style="color: #fff">Address</p><span style="color: lightblue">7784 Diamonds street, California, HK.</span>
+								</div>
+							</div>
+</div>
+    <a href="#home" class="scroll" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+</body>
+
+</html>

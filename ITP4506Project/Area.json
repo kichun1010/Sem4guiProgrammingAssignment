@@ -1,0 +1,30 @@
+{
+    "area": {
+        "Hong Kong Island": [
+            "Central & Western District", "Eastern District", "Southern District", "Wanchai District"],
+        "Kowloon": ["Kowloon City District", "Wong Tai Sin District", "Kwun Tong District", "Yau Tsim Mong District", "Sham Shui Po District"],
+        "New Territories": ["Tsuen Wan District", "Kwai Tsing District", "Sai Kung District", "Shatin District", "Tai Po District", "Northern District", "Tuen Mun District", "Yuen Long District", "Islands District"]
+    },
+    "district": {
+        "Central & Western District": ["Kennedy Town", "Shek Tong Tsui", "Sai Ying Pun", "Sheung Wan", "Central", "Admiralty", "Mid-levels", "Peak"],
+        "Eastern District": ["Tin Hau", "Braemar Hill", "North Point", "Quarry Bay", "Sai Wan Ho", "Shau Kei Wan", "Chai Wan", "Siu Sai Wan"],
+        "Southern District": ["Pok Fu Lam", "Aberdeen", "Ap Lei Chau", "Wong Chuk Hang", "Shouson Hill", "Repulse Bay", "Chung Hom Kok", "Stanley", "Tai Tam", "Shek O"],
+        "Wanchai District": ["Wan Chai", "Causeway Bay", "Happy Valley", "Tai Hang", "So Kon Po", "Jardine's Lookout"],
+        "Kowloon City District": ["Hung Hom", "To Kwa Wan", "Ma Tau Kok", "Ma Tau Wai", "Kai Tak", "Kowloon City", "Ho Man Tin", "Kowloon Tong", "Beacon Hill"],
+        "Wong Tai Sin District": ["San Po Kong", "Wong Tai Sin", "Tung Tau", "Wang Tau Hom", "Lok Fu", "Diamond Hill", "Tsz Wan Shan", "Ngau Chi Wan"],
+        "Kwun Tong District": ["Ping Shek", "Kowloon Bay", "Ngau Tau Kok", "Jordan Valley", "Kwun Tong", "Sau Mau Ping", "Lam Tin", "Yau Tong", "Lei Yue Mun"],
+        "Yau Tsim Mong District": ["Tsim Sha Tsui", "Yau Ma Tei", "West Kowloon Reclamation", "King's Park", "Mong Kok", "Tai Kok Tsui"],
+        "Sham Shui Po District": ["Mei Foo", "Lai Chi Kok", "Cheung Sha Wan", "Sham Shui Po", "Shek Kip Mei", "Yau Yat Tsuen", "Tai Wo Ping", "Stonecutters Island"],
+        "Tsuen Wan District": ["Tsuen Wan", "Lei Muk Shue", "Ting Kau", "Sham Tseng", "Tsing Lung Tau", "Ma Wan", "Sunny Bay"],
+        "Kwai Tsing District": ["Kwai Chung", "Tsing Yi"],
+        "Sai Kung District": ["Clear Water Bay", "Sai Kung", "Tai Mong Tsai", "Tseung Kwan O", "Hang Hau", "Tiu Keng Leng", "Ma Yau Tong"],
+        "Shatin District": ["Tai Wai", "Sha Tin", "Fo Tan", "Ma Liu Shui", "Wu Kai Sha", "Ma On Shan"],
+        "Tai Po District": ["Tai Po Market", "Tai Po", "Tai Po Kau", "Tai Mei Tuk", "Shuen Wan", "Cheung Muk Tau", "Kei Ling Ha"],
+        "Northern District": ["Fanling", "Luen Wo Hui", "Sheung Shui", "Shek Wu Hui", "Sha Tau Kok", "Luk Keng", "Wu Kau Tang"],
+        "Tuen Mun District": ["Tai Lam Chung", "So Kwun Wat", "Tuen Mun", "Lam Tei"],
+        "Yuen Long District": ["Hung Shui Kiu", "Ha Tsuen", "Lau Fau Shan", "Tin Shui Wai", "Yuen Long", "San Tin", "Lok Ma Chau", "Kam Tin", "Shek Kong", "Pat Heung"],
+        "Islands District": ["Cheung Chau", "Peng Chau", "Lantau Island(including Tung Chung)", "Lamma Island"]
+    },
+    "food": ["Afghan", "American", "Argentine", "Asian", "Austrian", "Bagels", "Bakery", "Barbecue", "Belgian", "Bistro", "Brazilian", "British", "Buffet", "Burgers", "Cafe", "Cajun", "Californian", "Calzones", "Cambodian", "Caribbean", "Catering", "Cheesesteaks", "Chicken", "Chinese", "Chowder", "Coffee", "Colombian", "Contemporary", "Continental", "Creole", "Crepes", "Cuban", "Cuban", "Czech", "Deli", "Dim Sum", "Diner", "Dominican", "Donuts", "Eastern European", "Eclectic", "English", "Ethiopian", "European", "Fast Food", "Filipino", "Fish and Chips", "Fondue", "French", "Frozen Yogurt", "Fusion", "Gastropub", "German", "Greek", "Grill", "Gyros", "Haitian", "Halal", "Hawaiian", "Healthy", "Hookah Bar", "Hot Dogs", "Ice Cream", "Indian", "Indonesian", "International", "Irish", "Israeli", "Italian", "Japanese", "Juices", "Korean", "Korean Barbeque", "Kosher", "Latin", "Latin American", "Lebanese", "Malaysian", "Mediterranean", "Mexican", "Middle Eastern", "Mongolian", "Moroccan", "Nepalese", "Noodle Bar", "Norwegian", "Organic", "Oysters", "Pacific Rim", "Pakistani", "Pan Asian", "Pasta", "Pasteries", "Persian", "Peruvian", "Pho", "Pizza", "Polish", "Polynesian", "Portuguese", "Pub Food", "Puerto Rican", "Ribs", "Salad", "Salvadoran", "Sandwiches", "Seafood", "Singaporean", "Smoothies", "Soul Food", "Soup", "South American", "South Pacific", "Southern", "Southwestern", "Spanish", "Steak", "Subs", "Sushi", "Taiwanese", "Tapas", "Tea", "Tex Mex", "Thai", "Tibetan", "Traditional", "Turkish", "Ukrainian", "Vegan", "Vegetarian", "Venezuelan", "Venusian", "Vietnamese", "Wings", "Wraps"]
+
+}

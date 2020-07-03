@@ -1,0 +1,17 @@
+{
+    "normal": {"dishes":["Pie Of The Day","Smoked Chicken & Bacon Fettuccine","Veggie 'O Veg","The Great Steak","Smothered Beef Rib Eye","Slow Roast Pork Belly","Fish Of The Day","Smoked Chicken Breast","CRispy Battered Fish & Chips","Smoked Lamb Shank"],"price":["167","196","188","207","279","268","167","215","212","252"]
+                    
+    },"monday":{"dishes":["Smothered Chicken","Grilled Tenderioin","Calabash Shirmp"],"price":["80","70","93"]
+        
+    },"tuesday":{"dishes":["Fish Fillet with Arugula","Smoked Beef","Grilled Salmon"],"price":["72","93","70"]
+        
+                },"wednesday":{"dishes":["Roasted Pork","Baked Cheesy Potato","Big Burger Delight"],"price":["72","61","45"]
+        
+},"thursday":{"dishes":["Smoked Beef","Calabash Shrimp","Roasted Pork"],"price":["72","86","93"]
+    
+},"friday":{"dishes":["SeaFfood Platter","Baked Cheesy Patate","Grilled Tenderloin"],"price":["88","86","77"]
+    
+},"saturday":{"dishes":["Fish Fillet with Aruguis","Baked Chessy Salmon","Big Burger Delight"],"price":["96","110","85"]
+        
+}
+}

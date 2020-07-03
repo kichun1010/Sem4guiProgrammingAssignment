@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <!--  bootstrap css  -->
+        <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="css/font-awesome.css" rel="stylesheet"> 
+        <script src="js/bootstrap.js"></script>
+        <script src="jslib/jquery-3.3.1.js"></script>
+        <!--web-fonts-->
+        <link href="//fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+        <link href="//fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+        <link href="//fonts.googleapis.com/css?family=Tangerine:400,700" rel="stylesheet">
+        <script>
+        $(document).ready(function(){
+           $("#link").on("click",function(){
+                $("#modal").fadeIn(1000);
+            }); 
+            $("#close").click(function(){
+                $("#modal").fadeOut(1000);
+            });
+            $("#closeBtn").click(function(){
+                $("#modal").fadeOut(1000);
+            });
+            $("#create").on("click",function(){
+                $("#modal").slideUp(1000);
+                $("#signUp").slideDown(1000);
+            });
+            
+            $("#login").on("click",function(){
+                $("#modal").slideDown(1000);
+                $("#signUp").slideUp(1000);
+            });
+            
+            $("#go").click(function(){
+                var ac=$("#ac").val();
+                if(ac==="normal")
+                    location.href="normalPage.html";
+                else if(ac==="operator")
+                    location.href="shopinformation.html";
+                else if(ac==="admin")
+                    location.href="adminPage.html";
+            });
+            
+            $("#go1").click(function(){
+                alert("Register Successful!! You can login now.");    
+            });
+        });
+    </script>
+<!--//web-fonts-->
+</head>
+<body>
+
+<a href="javascript:void(0)" id="link">ABS</a>
+<div class="modal-open" id="modal" style="position: absolute;z-index:2;top: 20%;left: 30%;" role="dialog" >
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: #ff9022">
+               <button type="button" class="close" data-dismiss="modal" id="close">&times;</button>
+                <h2 class="modal-title" id="modalTitle">Login</h2>
+            </div>
+            <div class="modal-body">
+                <form id="loginForm">
+                   <div class="form-group">
+                   <label for="">Username</label>
+                    <input type="text" name="" id="ac" class="form-control" >
+                    </div>
+                    <div class="form-group">
+                   <label for="">Password</label>
+                    <input type="password" id="pw" name="" class="form-control" >
+                    </div>
+                    
+                    <div class="form-group">
+                    <input type="checkbox">Remember Me
+                    </div>
+<!--                    <a href="" class="btn btn-primary btn-block" id="go">Login</a>-->
+                    <input type="button" class="btn btn-primary btn-block" id="go" value="Login" >
+                </form>
+            </div>
+            <div class="modal-footer">
+                <a href="javascript:void(0)" id="create" style="float: left">Create Account?</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-open" id="signUp" role="dialog" style="position: absolute;z-index:2;top: 20%;left: 30%;" hidden>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: #ff9022">
+               <button type="button" class="close" data-dismiss="modal" id="close">&times;</button>
+                <h2 class="modal-title" id="Title">Create Account</h2>
+            </div>
+            <div class="modal-body">
+                <form class="" id="createForm" action="">
+                   <div class="form-group">
+                   <label for="">Username</label>
+                    <input type="text" name="" class="form-control" >
+                    </div>
+                    <div class="form-group">
+                   <label for="">Password</label>
+                    <input type="password" name="" class="form-control" >
+                    </div>
+                    
+                    <div class="form-group">
+                   <label for="">Confirm Password</label>
+                    <input type="password" name="" class="form-control" >
+                    </div>
+
+                  <div class="form-group">
+                   <label for="">First Nname</label>
+                    <input type="text" name="" class="form-control" >
+                    </div>
+                    
+                    <div class="form-group">
+                   <label for="">Last Nname</label>
+                    <input type="text" name="" class="form-control" >
+                    </div>
+                    
+                   <div class="form-group">
+                   <label for="">Address</label>
+                    <input type="text" name="" class="form-control" >
+                    </div>
+                    
+                    <div class="form-group">
+                   <label for="">E-mail</label>
+                    <input type="text" name="" class="form-control" >
+                    </div>
+                    
+                    <div class="form-group">
+                   <label for="">Phone Number</label>
+                    <input type="text" name="" class="form-control" >
+                    </div>
+                    
+<!--                    <button class="btn btn-primary btn-block" id="go2">Register</button>-->
+                    <input type="button" class="btn btn-primary btn-block" id="go1" value="Register">
+                    <input type="reset" class="btn btn-primary btn-block" value="Reset" style="background-color: crimson">
+                </form>
+            </div>
+            <div class="modal-footer">
+                <p style="float: left">You have an account? <a href="javascript:void(0)" id="login">Login</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
